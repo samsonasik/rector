@@ -21,10 +21,14 @@ final class SensitiveDefineRector extends AbstractRector
         return new RectorDefinition(
             'Changes case insensitive constants to sensitive ones.',
             [new CodeSample(<<<'PHP'
-define('FOO', 42, true); 
+declare(strict_types=1);
+
+define('FOO', 42, true);
 PHP
                 , <<<'PHP'
-define('FOO', 42); 
+declare(strict_types=1);
+
+define('FOO', 42);
 PHP
             )]
         );

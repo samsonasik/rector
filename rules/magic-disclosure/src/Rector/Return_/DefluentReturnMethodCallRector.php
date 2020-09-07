@@ -23,10 +23,14 @@ final class DefluentReturnMethodCallRector extends AbstractFluentChainMethodCall
     {
         return new RectorDefinition('Turns return of fluent, to standalone call line and return of value', [
             new CodeSample(<<<'PHP'
+declare(strict_types=1);
+
 $someClass = new SomeClass();
 return $someClass->someFunction();
 PHP
             , <<<'PHP'
+declare(strict_types=1);
+
 $someClass = new SomeClass();
 $someClass->someFunction();
 return $someClass;

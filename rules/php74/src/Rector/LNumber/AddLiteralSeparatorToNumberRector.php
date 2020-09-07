@@ -34,9 +34,11 @@ final class AddLiteralSeparatorToNumberRector extends AbstractRector
         return new RectorDefinition('Add "_" as thousands separator in numbers', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         $int = 1000;
         $float = 1000500.001;
@@ -45,9 +47,11 @@ class SomeClass
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         $int = 1_000;
         $float = 1_000_500.001;

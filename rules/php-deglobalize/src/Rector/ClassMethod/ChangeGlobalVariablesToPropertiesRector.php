@@ -33,15 +33,17 @@ final class ChangeGlobalVariablesToPropertiesRector extends AbstractRector
         return new RectorDefinition('Change global $variables to private properties', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function go()
+    public function go(): void
     {
         global $variable;
         $variable = 5;
     }
 
-    public function run()
+    public function run(): void
     {
         global $variable;
         var_dump($variable);
@@ -50,15 +52,18 @@ class SomeClass
 PHP
 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
     private $variable;
-    public function go()
+
+    public function go(): void
     {
         $this->variable = 5;
     }
 
-    public function run()
+    public function run(): void
     {
         var_dump($this->variable);
     }

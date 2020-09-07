@@ -24,6 +24,8 @@ final class ClassOnObjectRector extends AbstractRector
         return new RectorDefinition('Change get_class($object) to faster $object::class', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
     public function run($object)
@@ -34,6 +36,8 @@ class SomeClass
 PHP
 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
     public function run($object)

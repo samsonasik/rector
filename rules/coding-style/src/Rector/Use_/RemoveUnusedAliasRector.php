@@ -77,6 +77,8 @@ final class RemoveUnusedAliasRector extends AbstractRector
             [
                 new CodeSample(
                     <<<'PHP'
+declare(strict_types=1);
+
 use Symfony\Kernel as BaseKernel;
 
 class SomeClass extends BaseKernel
@@ -85,6 +87,8 @@ class SomeClass extends BaseKernel
 PHP
                     ,
                     <<<'PHP'
+declare(strict_types=1);
+
 use Symfony\Kernel;
 
 class SomeClass extends Kernel

@@ -65,25 +65,29 @@ final class IfToSpaceshipRector extends AbstractRector
         return new RectorDefinition('Changes if/else to spaceship <=> where useful', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         usort($languages, function ($a, $b) {
             if ($a[0] === $b[0]) {
                 return 0;
             }
 
-            return ($a[0] < $b[0]) ? 1 : -1;
+            return $a[0] < $b[0] ? 1 : -1;
         });
     }
 }
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         usort($languages, function ($a, $b) {
             return $b[0] <=> $a[0];

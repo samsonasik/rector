@@ -40,7 +40,9 @@ final class ModalToGetSetRector extends AbstractRector implements ConfigurableRe
             [
                 new ConfiguredCodeSample(
                     <<<'PHP'
-$object = new InstanceConfigTrait;
+declare(strict_types=1);
+
+$object = new InstanceConfigTrait();
 
 $config = $object->config();
 $config = $object->config('key');
@@ -50,7 +52,9 @@ $object->config(['key' => 'value']);
 PHP
                     ,
                     <<<'PHP'
-$object = new InstanceConfigTrait;
+declare(strict_types=1);
+
+$object = new InstanceConfigTrait();
 
 $config = $object->getConfig();
 $config = $object->getConfig('key');

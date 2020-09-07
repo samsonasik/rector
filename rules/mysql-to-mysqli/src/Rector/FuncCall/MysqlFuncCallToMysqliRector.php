@@ -34,6 +34,8 @@ final class MysqlFuncCallToMysqliRector extends AbstractRector
             [
                 new CodeSample(
                     <<<'PHP'
+declare(strict_types=1);
+
 mysql_drop_db($database);
 PHP
                     ,

@@ -46,6 +46,8 @@ $object = $object->withParam('paging', ['a value']);
 PHP
                     ,
                     <<<'PHP'
+declare(strict_types=1);
+
 $object = new ServerRequest();
 
 $config = $object->getAttribute('paging');

@@ -41,6 +41,8 @@ class TaskType extends AbstractType
 PHP
 ,
                     <<<'PHP'
+declare(strict_types=1);
+
 use Symfony\Component\Form\AbstractType;
 
 class TaskType extends AbstractType

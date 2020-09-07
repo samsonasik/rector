@@ -37,9 +37,11 @@ switch ($expr) {
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 switch ($expr) {
     default:
-         echo "Goodbye Moon!";
+         echo 'Goodbye Moon!';
          break;
 }
 PHP

@@ -102,6 +102,8 @@ final class SomeTestCase extends TestCase
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 final class SomeTestCase extends KernelTestCase
@@ -114,10 +116,11 @@ final class SomeTestCase extends KernelTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->entityFactory = self::$container->get(EntityFactory::class);
     }
 
-    public function test()
+    public function test(): void
     {
         $product = $this->entityFactory->create('product');
     }

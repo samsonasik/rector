@@ -23,6 +23,8 @@ final class AddFalseDefaultToBoolPropertyRector extends AbstractRector
         return new RectorDefinition('Add false default to bool properties, to prevent null compare errors', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
     /**
@@ -33,6 +35,8 @@ class SomeClass
 PHP
 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
     /**

@@ -74,6 +74,8 @@ final class RepeatedLiteralToClassConstantRector extends AbstractRector
         return new RectorDefinition('Replace repeated strings with constant', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
     public function run($key, $items)
@@ -86,12 +88,15 @@ class SomeClass
 PHP
 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
     /**
      * @var string
      */
     private const REQUIRES = 'requires';
+
     public function run($key, $items)
     {
         if ($key === self::REQUIRES) {

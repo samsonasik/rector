@@ -36,6 +36,8 @@ final class DowngradeTypedPropertyRector extends AbstractRector implements Confi
         return new RectorDefinition('Changes property type definition from type definitions to `@var` annotations.', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
     private string $property;
@@ -43,11 +45,13 @@ class SomeClass
 PHP
 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
     /**
-    * @var string
-    */
+     * @var string
+     */
     private $property;
 }
 PHP

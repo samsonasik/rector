@@ -39,25 +39,31 @@ final class NewObjectToFactoryCreateRector extends AbstractRector implements Con
         return new RectorDefinition('Replaces creating object instances with "new" keyword with factory method.', [
             new ConfiguredCodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-	public function example() {
-		new MyClass($argument);
-	}
+    public function example(): void
+    {
+        new MyClass($argument);
+    }
 }
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-	/**
-	 * @var \MyClassFactory
-	 */
-	private $myClassFactory;
+    /**
+     * @var MyClassFactory
+     */
+    private $myClassFactory;
 
-	public function example() {
-		$this->myClassFactory->create($argument);
-	}
+    public function example(): void
+    {
+        $this->myClassFactory->create($argument);
+    }
 }
 PHP
                 ,

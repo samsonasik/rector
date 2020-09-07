@@ -43,17 +43,16 @@ final class ChangeReadOnlyPropertyWithDefaultValueToConstantRector extends Abstr
         return new RectorDefinition('Change property with read only status with default value to constant', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
     /**
      * @var string[]
      */
-    private $magicMethods = [
-        '__toString',
-        '__wakeup',
-    ];
+    private $magicMethods = ['__toString', '__wakeup'];
 
-    public function run()
+    public function run(): void
     {
         foreach ($this->magicMethods as $magicMethod) {
             echo $magicMethod;

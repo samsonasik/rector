@@ -36,9 +36,11 @@ final class MethodCallToReturnRector extends AbstractRector implements Configura
         return new RectorDefinition('Wrap method call to return', [
             new ConfiguredCodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         $this->deny();
     }
@@ -51,6 +53,8 @@ class SomeClass
 PHP
 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
     public function run()

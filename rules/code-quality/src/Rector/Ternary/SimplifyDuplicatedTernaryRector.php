@@ -21,23 +21,27 @@ final class SimplifyDuplicatedTernaryRector extends AbstractRector
         return new RectorDefinition('Remove ternary that duplicated return value of true : false', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run(bool $value, string $name)
+    public function run(bool $value, string $name): void
     {
-         $isTrue = $value ? true : false;
-         $isName = $name ? true : false;
+        $isTrue = $value ? true : false;
+        $isName = $name ? true : false;
     }
 }
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run(bool $value, string $name)
+    public function run(bool $value, string $name): void
     {
-         $isTrue = $value;
-         $isName = $name ? true : false;
+        $isTrue = $value;
+        $isName = $name ? true : false;
     }
 }
 PHP

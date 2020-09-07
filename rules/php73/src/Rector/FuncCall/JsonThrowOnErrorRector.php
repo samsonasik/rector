@@ -29,6 +29,8 @@ final class JsonThrowOnErrorRector extends AbstractRector
             [
                 new CodeSample(
                     <<<'PHP'
+declare(strict_types=1);
+
 json_encode($content);
 json_decode($json);
 PHP

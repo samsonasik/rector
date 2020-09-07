@@ -60,6 +60,8 @@ final class SimplifyIfReturnBoolRector extends AbstractRector
         return new RectorDefinition('Shortens if return false/true to direct return', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 if (strpos($docToken->getContent(), "\n") === false) {
     return true;
 }

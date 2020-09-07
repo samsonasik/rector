@@ -29,11 +29,13 @@ final class BuilderExpandToHelperExpandRector extends AbstractRector
         return new RectorDefinition('Change containerBuilder->expand() to static call with parameters', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 use Nette\DI\CompilerExtension;
 
 final class SomeClass extends CompilerExtension
 {
-    public function loadConfiguration()
+    public function loadConfiguration(): void
     {
         $value = $this->getContainerBuilder()->expand('%value');
     }

@@ -42,28 +42,32 @@ final class FormerNullableArgumentToScalarTypedRector extends AbstractRector
         return new RectorDefinition('Change null in argument, that is now not nullable anymore', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 final class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         $this->setValue(null);
     }
 
-    public function setValue(string $value)
+    public function setValue(string $value): void
     {
     }
 }
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 final class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         $this->setValue('');
     }
 
-    public function setValue(string $value)
+    public function setValue(string $value): void
     {
     }
 }

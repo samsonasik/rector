@@ -41,9 +41,11 @@ final class ThrowWithPreviousExceptionRector extends AbstractRector
             [
                 new CodeSample(
                     <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         try {
             $someCode = 1;
@@ -55,9 +57,11 @@ class SomeClass
 PHP
                     ,
                     <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         try {
             $someCode = 1;

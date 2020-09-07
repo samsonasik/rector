@@ -24,14 +24,18 @@ final class TernaryToElvisRector extends AbstractRector
         return new RectorDefinition('Use ?: instead of ?, where useful', [
             new CodeSample(
                 <<<'PHP'
-function elvis()
+declare(strict_types=1);
+
+function elvis(): void
 {
-    $value = $a ? $a : false;
+    $value = $a ?: false;
 }
 PHP
                 ,
                 <<<'PHP'
-function elvis()
+declare(strict_types=1);
+
+function elvis(): void
 {
     $value = $a ?: false;
 }

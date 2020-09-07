@@ -47,7 +47,9 @@ final class FunctionToStaticMethodRector extends AbstractFileSystemRector
         return new RectorDefinition('Change functions to static calls, so composer can autoload them', [
             new CodeSample(
                 <<<'PHP'
-function some_function()
+declare(strict_types=1);
+
+function some_function(): void
 {
 }
 
@@ -55,9 +57,11 @@ some_function('lol');
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeUtilsClass
 {
-    public static function someFunction()
+    public static function someFunction(): void
     {
     }
 }

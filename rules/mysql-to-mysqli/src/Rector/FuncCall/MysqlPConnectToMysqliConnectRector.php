@@ -25,6 +25,8 @@ final class MysqlPConnectToMysqliConnectRector extends AbstractRector
         return new RectorDefinition('Replace mysql_pconnect() with mysqli_connect() with host p: prefix', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 final class SomeClass
 {
     public function run($host, $username, $password)
@@ -35,6 +37,8 @@ final class SomeClass
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 final class SomeClass
 {
     public function run($host, $username, $password)

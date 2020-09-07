@@ -42,9 +42,11 @@ final class VarInlineAnnotationToAssertRector extends AbstractRector
         return new RectorDefinition('Turn @var inline checks above code to assert() of hte type', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         /** @var SpecificClass $value */
         $value->call();
@@ -53,9 +55,11 @@ class SomeClass
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         /** @var SpecificClass $value */
         assert($value instanceof SpecificClass);

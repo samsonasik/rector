@@ -25,9 +25,11 @@ final class DecorateMethodWithArgumentTypeProbeRector extends AbstractArgumentPr
         return new RectorDefinition('Add probe that records argument types to each method', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run($arg)
+    public function run($arg): void
     {
     }
 }

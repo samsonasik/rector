@@ -39,6 +39,8 @@ final class SomeClass extends SomeParentClass
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 final class SomeClass
 {
 }

@@ -28,9 +28,11 @@ final class RemoveDefaultArgumentValueRector extends AbstractRector
         return new RectorDefinition('Remove argument value, if it is the same as default value', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         $this->runWithDefault([]);
         $card = self::runWithStaticDefault([]);
@@ -49,9 +51,11 @@ class SomeClass
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         $this->runWithDefault();
         $card = self::runWithStaticDefault();

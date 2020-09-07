@@ -25,23 +25,27 @@ final class UseIdenticalOverEqualWithSameTypeRector extends AbstractRector
         return new RectorDefinition('Use ===/!== over ==/!=, it values have the same type', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run(int $firstValue, int $secondValue)
+    public function run(int $firstValue, int $secondValue): void
     {
-         $isSame = $firstValue == $secondValue;
-         $isDiffernt = $firstValue != $secondValue;
+        $isSame = $firstValue === $secondValue;
+        $isDiffernt = $firstValue !== $secondValue;
     }
 }
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run(int $firstValue, int $secondValue)
+    public function run(int $firstValue, int $secondValue): void
     {
-         $isSame = $firstValue === $secondValue;
-         $isDiffernt = $firstValue !== $secondValue;
+        $isSame = $firstValue === $secondValue;
+        $isDiffernt = $firstValue !== $secondValue;
     }
 }
 PHP

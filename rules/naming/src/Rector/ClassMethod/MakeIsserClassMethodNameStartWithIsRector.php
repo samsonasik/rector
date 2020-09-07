@@ -51,6 +51,8 @@ final class MakeIsserClassMethodNameStartWithIsRector extends AbstractRector
         return new RectorDefinition('Change is method names to start with is/has/was', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
     /**
@@ -67,6 +69,8 @@ PHP
 
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
     /**

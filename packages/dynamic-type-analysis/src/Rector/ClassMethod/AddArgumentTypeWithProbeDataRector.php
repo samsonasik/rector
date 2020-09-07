@@ -20,18 +20,22 @@ final class AddArgumentTypeWithProbeDataRector extends AbstractArgumentProbeRect
         return new RectorDefinition('Add argument type based on probed data', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run($arg)
+    public function run($arg): void
     {
     }
 }
 PHP
 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run(string $arg)
+    public function run(string $arg): void
     {
     }
 }

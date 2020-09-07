@@ -36,22 +36,26 @@ final class ForeachItemsAssignToEmptyArrayToAssignRector extends AbstractRector
         return new RectorDefinition('Change foreach() items assign to empty array to direct assign', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run($items)
+    public function run($items): void
     {
         $items2 = [];
         foreach ($items as $item) {
-             $items2[] = $item;
+            $items2[] = $item;
         }
     }
 }
 PHP
 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run($items)
+    public function run($items): void
     {
         $items2 = [];
         $items2 = $items;

@@ -33,18 +33,22 @@ final class PrivatizeFinalClassMethodRector extends AbstractRector
         return new RectorDefinition('Change protected class method to private if possible', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 final class SomeClass
 {
-    protected function someMethod()
+    private function someMethod(): void
     {
     }
 }
 PHP
 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 final class SomeClass
 {
-    private function someMethod()
+    private function someMethod(): void
     {
     }
 }

@@ -37,6 +37,8 @@ final class TimestampableBehaviorRector extends AbstractRector
             [
                 new CodeSample(
                     <<<'PHP'
+declare(strict_types=1);
+
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 
 class SomeClass
@@ -46,8 +48,10 @@ class SomeClass
 PHP
 ,
                     <<<'PHP'
-use Knp\DoctrineBehaviors\Model\Timestampable\TimestampableTrait;
+declare(strict_types=1);
+
 use Knp\DoctrineBehaviors\Contract\Entity\TimestampableInterface;
+use Knp\DoctrineBehaviors\Model\Timestampable\TimestampableTrait;
 
 class SomeClass implements TimestampableInterface
 {

@@ -33,9 +33,11 @@ final class UnderscoreToCamelCaseVariableNameRector extends AbstractRector
         return new RectorDefinition('Change under_score names to camelCase', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 final class SomeClass
 {
-    public function run($a_b)
+    public function run($a_b): void
     {
         $some_value = $a_b;
     }
@@ -43,9 +45,11 @@ final class SomeClass
 PHP
 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 final class SomeClass
 {
-    public function run($aB)
+    public function run($aB): void
     {
         $someValue = $aB;
     }

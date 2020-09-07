@@ -50,25 +50,30 @@ final class OrderPublicInterfaceMethodRector extends AbstractRector implements C
         return new RectorDefinition('Order public methods required by interface in custom orderer', [
             new ConfiguredCodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass implements FoodRecipeInterface
 {
-    public function process()
+    public function process(): void
     {
     }
 
-    public function getDescription()
+    public function getDescription(): void
     {
     }
 }
 PHP
 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass implements FoodRecipeInterface
 {
-    public function getDescription()
+    public function getDescription(): void
     {
     }
-    public function process()
+
+    public function process(): void
     {
     }
 }

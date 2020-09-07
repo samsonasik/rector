@@ -36,11 +36,15 @@ final class FormIsValidRector extends AbstractRector
             [
                 new CodeSample(
                     <<<'PHP'
+declare(strict_types=1);
+
 if ($form->isValid()) {
 }
 PHP
                     ,
 <<<'PHP'
+declare(strict_types=1);
+
 if ($form->isSubmitted() && $form->isValid()) {
 }
 PHP

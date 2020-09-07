@@ -28,6 +28,8 @@ final class SimplifyForeachToArrayFilterRector extends AbstractRector
         return new RectorDefinition('Simplify foreach with function filtering to array filter', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 $directories = [];
 $possibleDirectories = [];
 foreach ($possibleDirectories as $possibleDirectory) {
@@ -38,6 +40,8 @@ foreach ($possibleDirectories as $possibleDirectory) {
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 $possibleDirectories = [];
 $directories = array_filter($possibleDirectories, 'file_exists');
 PHP

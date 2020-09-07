@@ -87,12 +87,16 @@ final class SensitiveConstantNameRector extends AbstractRector
             [
                 new CodeSample(
                     <<<'PHP'
+declare(strict_types=1);
+
 define('FOO', 42, true);
 var_dump(FOO);
 var_dump(foo);
 PHP
                     ,
                     <<<'PHP'
+declare(strict_types=1);
+
 define('FOO', 42, true);
 var_dump(FOO);
 var_dump(FOO);

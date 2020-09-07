@@ -32,6 +32,8 @@ final class RenameConstantRector extends AbstractRector implements ConfigurableR
         return new RectorDefinition('Replace constant by new ones', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 final class SomeClass
 {
     public function run()
@@ -42,6 +44,8 @@ final class SomeClass
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 final class SomeClass
 {
     public function run()

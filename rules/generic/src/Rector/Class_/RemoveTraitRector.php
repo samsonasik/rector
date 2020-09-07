@@ -50,6 +50,8 @@ final class RemoveTraitRector extends AbstractRector implements ConfigurableRect
         return new RectorDefinition('Remove specific traits from code', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
     use SomeTrait;
@@ -57,6 +59,8 @@ class SomeClass
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
 }

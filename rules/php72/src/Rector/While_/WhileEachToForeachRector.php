@@ -40,12 +40,16 @@ final class WhileEachToForeachRector extends AbstractRector
             [
                 new CodeSample(
                     <<<'PHP'
-while (list($key, $callback) = each($callbacks)) {
+declare(strict_types=1);
+
+while ([$key, $callback] = each($callbacks)) {
     // ...
 }
 PHP
                     ,
                     <<<'PHP'
+declare(strict_types=1);
+
 foreach ($callbacks as $key => $callback) {
     // ...
 }
@@ -53,12 +57,16 @@ PHP
                 ),
                 new CodeSample(
                     <<<'PHP'
-while (list($key) = each($callbacks)) {
+declare(strict_types=1);
+
+while ([$key] = each($callbacks)) {
     // ...
 }
 PHP
                     ,
                     <<<'PHP'
+declare(strict_types=1);
+
 foreach (array_keys($callbacks) as $key) {
     // ...
 }

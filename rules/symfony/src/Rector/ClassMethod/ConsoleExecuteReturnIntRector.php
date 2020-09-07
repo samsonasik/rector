@@ -32,6 +32,8 @@ final class ConsoleExecuteReturnIntRector extends AbstractRector
         return new RectorDefinition('Returns int from Command::execute command', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeCommand extends Command
 {
     public function execute(InputInterface $input, OutputInterface $output)
@@ -42,6 +44,8 @@ class SomeCommand extends Command
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeCommand extends Command
 {
     public function index(InputInterface $input, OutputInterface $output): int

@@ -25,22 +25,26 @@ final class ClassConstantToSelfClassRector extends AbstractRector
         return new RectorDefinition('Change `__CLASS__` to self::class', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-   public function callOnMe()
-   {
-       var_dump(__CLASS__);
-   }
+    public function callOnMe(): void
+    {
+        var_dump(self::class);
+    }
 }
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-   public function callOnMe()
-   {
-       var_dump(self::class);
-   }
+    public function callOnMe(): void
+    {
+        var_dump(self::class);
+    }
 }
 PHP
             ),

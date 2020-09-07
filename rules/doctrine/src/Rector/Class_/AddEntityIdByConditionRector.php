@@ -59,6 +59,8 @@ final class AddEntityIdByConditionRector extends AbstractRector implements Confi
         return new RectorDefinition('Add entity id with annotations when meets condition', [
             new ConfiguredCodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
     use SomeTrait;
@@ -66,16 +68,18 @@ class SomeClass
 PHP
 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
     use SomeTrait;
 
     /**
-      * @ORM\Id
-      * @ORM\Column(type="integer")
-      * @ORM\GeneratedValue(strategy="AUTO")
-      */
-     private $id;
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
 
     public function getId(): int
     {

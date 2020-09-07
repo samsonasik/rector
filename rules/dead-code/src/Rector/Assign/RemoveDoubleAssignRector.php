@@ -39,6 +39,8 @@ final class RemoveDoubleAssignRector extends AbstractRector
         return new RectorDefinition('Simplify useless double assigns', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 $value = 1;
 $value = 1;
 PHP

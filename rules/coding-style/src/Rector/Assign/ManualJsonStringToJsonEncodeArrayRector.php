@@ -54,9 +54,11 @@ final class ManualJsonStringToJsonEncodeArrayRector extends AbstractRector
         return new RectorDefinition('Add extra space before new assign set', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 final class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         $someJsonAsString = '{"role_name":"admin","numberz":{"id":"10"}}';
     }
@@ -64,13 +66,15 @@ final class SomeClass
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 final class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         $data = [
             'role_name' => 'admin',
-            'numberz' => ['id' => 10]
+            'numberz' => ['id' => 10],
         ];
 
         $someJsonAsString = Nette\Utils\Json::encode($data);

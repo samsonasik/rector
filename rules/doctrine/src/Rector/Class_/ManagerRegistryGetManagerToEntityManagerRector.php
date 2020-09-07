@@ -66,6 +66,8 @@ class CustomRepository
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 use Doctrine\ORM\EntityManagerInterface;
 
 class CustomRepository
@@ -80,7 +82,7 @@ class CustomRepository
         $this->entityManager = $entityManager;
     }
 
-    public function run()
+    public function run(): void
     {
         $someRepository = $this->entityManager->getRepository('Some');
     }

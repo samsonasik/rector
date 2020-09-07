@@ -64,9 +64,11 @@ final class RenameParamToMatchTypeRector extends AbstractRector
         return new RectorDefinition('Rename variable to match new ClassType', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 final class SomeClass
 {
-    public function run(Apple $pie)
+    public function run(Apple $pie): void
     {
         $food = $pie;
     }
@@ -74,9 +76,11 @@ final class SomeClass
 PHP
 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 final class SomeClass
 {
-    public function run(Apple $apple)
+    public function run(Apple $apple): void
     {
         $food = $apple;
     }

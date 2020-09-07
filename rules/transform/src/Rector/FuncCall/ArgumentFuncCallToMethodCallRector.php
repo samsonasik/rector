@@ -62,9 +62,11 @@ final class ArgumentFuncCallToMethodCallRector extends AbstractRector implements
         return new RectorDefinition('Move help facade-like function calls to constructor injection', [
             new ConfiguredCodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeController
 {
-    public function action()
+    public function action(): void
     {
         $template = view('template.blade');
         $viewFactory = view();
@@ -73,6 +75,9 @@ class SomeController
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+use Illuminate\Contracts\View\Factory;
+
 class SomeController
 {
     /**
@@ -80,12 +85,12 @@ class SomeController
      */
     private $viewFactory;
 
-    public function __construct(\Illuminate\Contracts\View\Factory $viewFactory)
+    public function __construct(Factory $viewFactory)
     {
         $this->viewFactory = $viewFactory;
     }
 
-    public function action()
+    public function action(): void
     {
         $template = $this->viewFactory->make('template.blade');
         $viewFactory = $this->viewFactory;

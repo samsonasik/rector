@@ -45,6 +45,8 @@ final class RemoveDuplicatedIfReturnRector extends AbstractRector
         return new RectorDefinition('Remove duplicated if stmt with return in function/method body', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
     public function run($value)
@@ -63,6 +65,8 @@ class SomeClass
 PHP
 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
     public function run($value)

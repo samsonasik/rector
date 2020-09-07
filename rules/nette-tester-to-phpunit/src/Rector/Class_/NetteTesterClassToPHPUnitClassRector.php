@@ -24,16 +24,18 @@ final class NetteTesterClassToPHPUnitClassRector extends AbstractRector
         return new RectorDefinition('Migrate Nette Tester test case to PHPUnit', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 namespace KdybyTests\Doctrine;
 
-use Tester\TestCase;
 use Tester\Assert;
+use Tester\TestCase;
 
 require_once __DIR__ . '/../bootstrap.php';
 
 class ExtensionTest extends TestCase
 {
-    public function testFunctionality()
+    public function testFunctionality(): void
     {
         Assert::true($default instanceof Kdyby\Doctrine\EntityManager);
         Assert::true(5);

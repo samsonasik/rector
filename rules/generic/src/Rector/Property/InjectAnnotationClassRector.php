@@ -78,6 +78,8 @@ final class InjectAnnotationClassRector extends AbstractRector implements Config
             [
                 new ConfiguredCodeSample(
                     <<<'PHP'
+declare(strict_types=1);
+
 use JMS\DiExtraBundle\Annotation as DI;
 
 class SomeController
@@ -90,7 +92,8 @@ class SomeController
 PHP
                     ,
                     <<<'PHP'
-use JMS\DiExtraBundle\Annotation as DI;
+declare(strict_types=1);
+
 
 class SomeController
 {

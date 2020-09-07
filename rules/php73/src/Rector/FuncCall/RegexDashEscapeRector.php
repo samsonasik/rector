@@ -51,10 +51,14 @@ final class RegexDashEscapeRector extends AbstractRector
         return new RectorDefinition('Escape - in some cases', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 preg_match("#[\w-()]#", 'some text');
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 preg_match("#[\w\-()]#", 'some text');
 PHP
             ),

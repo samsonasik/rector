@@ -81,33 +81,34 @@ final class AnnotateThrowablesRector extends AbstractRector
                 new CodeSample(
                 // code before
                     <<<'PHP'
+declare(strict_types=1);
+
 class RootExceptionInMethodWithDocblock
 {
     /**
      * This is a comment.
-     *
-     * @param int $code
      */
-    public function throwException(int $code)
+    public function throwException(int $code): void
     {
-        throw new \RuntimeException('', $code);
+        throw new RuntimeException('', $code);
     }
 }
 PHP
                     ,
                     // code after
                     <<<'PHP'
+declare(strict_types=1);
+
 class RootExceptionInMethodWithDocblock
 {
     /**
      * This is a comment.
      *
-     * @param int $code
-     * @throws \RuntimeException
+     * @throws RuntimeException
      */
-    public function throwException(int $code)
+    public function throwException(int $code): void
     {
-        throw new \RuntimeException('', $code);
+        throw new RuntimeException('', $code);
     }
 }
 PHP

@@ -40,6 +40,8 @@ final class OrderConstructorDependenciesByTypeAlphabeticallyRector extends Abstr
         return new RectorDefinition('Order __constructor dependencies by type A-Z', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
     public function __construct(
@@ -53,6 +55,8 @@ class SomeClass
 PHP
 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
     public function __construct(

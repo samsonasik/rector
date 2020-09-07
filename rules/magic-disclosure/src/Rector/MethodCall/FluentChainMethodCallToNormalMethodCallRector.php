@@ -25,11 +25,15 @@ final class FluentChainMethodCallToNormalMethodCallRector extends AbstractFluent
     public function getDefinition(): RectorDefinition
     {
         return new RectorDefinition('Turns fluent interface calls to classic ones.', [new CodeSample(<<<'PHP'
+declare(strict_types=1);
+
 $someClass = new SomeClass();
 $someClass->someFunction()
-            ->otherFunction();
+    ->otherFunction();
 PHP
             , <<<'PHP'
+declare(strict_types=1);
+
 $someClass = new SomeClass();
 $someClass->someFunction();
 $someClass->otherFunction();

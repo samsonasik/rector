@@ -45,19 +45,27 @@ final class SetCookieRector extends AbstractRector
             [
                 new CodeSample(
                     <<<'PHP'
+declare(strict_types=1);
+
 setcookie('name', $value, 360);
 PHP
                     ,
                     <<<'PHP'
+declare(strict_types=1);
+
 setcookie('name', $value, ['expires' => 360]);
 PHP
                 ),
                 new CodeSample(
 <<<'PHP'
+declare(strict_types=1);
+
 setcookie('name', $name, 0, '', '', true, true);
 PHP
                     ,
 <<<'PHP'
+declare(strict_types=1);
+
 setcookie('name', $name, ['expires' => 0, 'path' => '', 'domain' => '', 'secure' => true, 'httponly' => true]);
 PHP
                 ),

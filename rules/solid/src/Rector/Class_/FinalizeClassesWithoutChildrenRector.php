@@ -20,6 +20,8 @@ final class FinalizeClassesWithoutChildrenRector extends AbstractRector
         return new RectorDefinition('Finalize every class that has no children', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class FirstClass
 {
 }
@@ -34,6 +36,8 @@ class ThirdClass extends SecondClass
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 final class FirstClass
 {
 }

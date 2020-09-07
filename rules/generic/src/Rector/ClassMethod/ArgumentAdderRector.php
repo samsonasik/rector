@@ -68,12 +68,16 @@ final class ArgumentAdderRector extends AbstractRector implements ConfigurableRe
             [
                 new ConfiguredCodeSample(
                     <<<'PHP'
-$someObject = new SomeExampleClass;
+declare(strict_types=1);
+
+$someObject = new SomeExampleClass();
 $someObject->someMethod();
 PHP
                     ,
                     <<<'PHP'
-$someObject = new SomeExampleClass;
+declare(strict_types=1);
+
+$someObject = new SomeExampleClass();
 $someObject->someMethod(true);
 PHP
                     ,
@@ -81,18 +85,22 @@ PHP
                 ),
                 new ConfiguredCodeSample(
                     <<<'PHP'
+declare(strict_types=1);
+
 class MyCustomClass extends SomeExampleClass
 {
-    public function someMethod()
+    public function someMethod(): void
     {
     }
 }
 PHP
                     ,
                     <<<'PHP'
+declare(strict_types=1);
+
 class MyCustomClass extends SomeExampleClass
 {
-    public function someMethod($value = true)
+    public function someMethod($value = true): void
     {
     }
 }

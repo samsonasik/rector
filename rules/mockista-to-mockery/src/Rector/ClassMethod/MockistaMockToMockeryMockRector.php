@@ -39,9 +39,11 @@ final class MockistaMockToMockeryMockRector extends AbstractPHPUnitRector
         return new RectorDefinition('Change functions to static calls, so composer can autoload them', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeTest
 {
-    public function run()
+    public function run(): void
     {
         $mockUser = mock(User::class);
         $mockUser->getId()->once->andReturn(1);
@@ -51,9 +53,11 @@ class SomeTest
 PHP
 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeTest
 {
-    public function run()
+    public function run(): void
     {
         $mockUser = Mockery::mock(User::class);
         $mockUser->expects()->getId()->once()->andReturn(1);

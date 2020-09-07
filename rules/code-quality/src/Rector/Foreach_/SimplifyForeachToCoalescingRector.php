@@ -47,6 +47,8 @@ final class SimplifyForeachToCoalescingRector extends AbstractRector
         return new RectorDefinition('Changes foreach that returns set value to ??', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 foreach ($this->oldToNewFunctions as $oldFunction => $newFunction) {
     if ($currentFunction === $oldFunction) {
         return $newFunction;
@@ -57,6 +59,8 @@ return null;
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 return $this->oldToNewFunctions[$currentFunction] ?? null;
 PHP
             ),

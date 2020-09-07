@@ -33,6 +33,8 @@ final class MethodCallToStaticCallRector extends AbstractRector implements Confi
         return new RectorDefinition('Change method call to desired static call', [
             new ConfiguredCodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 final class SomeClass
 {
     private $anotherDependency;
@@ -50,6 +52,8 @@ final class SomeClass
 PHP
 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 final class SomeClass
 {
     private $anotherDependency;

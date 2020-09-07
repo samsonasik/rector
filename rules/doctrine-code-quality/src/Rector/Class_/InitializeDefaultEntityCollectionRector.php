@@ -40,6 +40,8 @@ final class InitializeDefaultEntityCollectionRector extends AbstractRector
         return new RectorDefinition('Initialize collection property in Entity constructor', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -55,6 +57,8 @@ class SomeClass
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 use Doctrine\ORM\Mapping as ORM;
 
 /**

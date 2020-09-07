@@ -48,13 +48,17 @@ final class GetAndSetToMethodCallRector extends AbstractRector implements Config
         return new RectorDefinition('Turns defined `__get`/`__set` to specific method calls.', [
             new ConfiguredCodeSample(
 <<<'PHP'
-$container = new SomeContainer;
+declare(strict_types=1);
+
+$container = new SomeContainer();
 $container->someService = $someService;
 PHP
                 ,
 <<<'PHP'
-$container = new SomeContainer;
-$container->setService("someService", $someService);
+declare(strict_types=1);
+
+$container = new SomeContainer();
+$container->setService('someService', $someService);
 PHP
                 ,
                 [
@@ -67,13 +71,17 @@ PHP
             ),
             new ConfiguredCodeSample(
                 <<<'PHP'
-$container = new SomeContainer;
+declare(strict_types=1);
+
+$container = new SomeContainer();
 $someService = $container->someService;
 PHP
                 ,
                 <<<'PHP'
-$container = new SomeContainer;
-$someService = $container->getService("someService");
+declare(strict_types=1);
+
+$container = new SomeContainer();
+$someService = $container->getService('someService');
 PHP
                 ,
                 [

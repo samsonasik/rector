@@ -48,15 +48,17 @@ final class ArrayToFluentCallRector extends AbstractRector implements Configurab
         return new RectorDefinition('Moves array options to fluent setter method calls.', [
             new ConfiguredCodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 use Cake\ORM\Table;
 
 final class ArticlesTable extends Table
 {
-    public function initialize(array $config)
+    public function initialize(array $config): void
     {
         $this->belongsTo('Authors', [
             'foreignKey' => 'author_id',
-            'propertyName' => 'person'
+            'propertyName' => 'person',
         ]);
     }
 }

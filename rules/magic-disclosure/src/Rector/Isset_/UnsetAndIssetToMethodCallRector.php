@@ -37,13 +37,17 @@ final class UnsetAndIssetToMethodCallRector extends AbstractRector implements Co
         return new RectorDefinition('Turns defined `__isset`/`__unset` calls to specific method calls.', [
             new ConfiguredCodeSample(
 <<<'PHP'
-$container = new SomeContainer;
-isset($container["someKey"]);
+declare(strict_types=1);
+
+$container = new SomeContainer();
+isset($container['someKey']);
 PHP
                 ,
                 <<<'PHP'
-$container = new SomeContainer;
-$container->hasService("someKey");
+declare(strict_types=1);
+
+$container = new SomeContainer();
+$container->hasService('someKey');
 PHP
                 ,
                 [
@@ -52,13 +56,17 @@ PHP
             ),
             new ConfiguredCodeSample(
                 <<<'PHP'
-$container = new SomeContainer;
-unset($container["someKey"]);
+declare(strict_types=1);
+
+$container = new SomeContainer();
+unset($container['someKey']);
 PHP
                 ,
                 <<<'PHP'
-$container = new SomeContainer;
-$container->removeService("someKey");
+declare(strict_types=1);
+
+$container = new SomeContainer();
+$container->removeService('someKey');
 PHP
                 ,
                 [

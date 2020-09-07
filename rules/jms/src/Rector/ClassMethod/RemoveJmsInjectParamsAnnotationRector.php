@@ -44,7 +44,8 @@ class SomeClass
 PHP
 ,
                 <<<'PHP'
-use JMS\DiExtraBundle\Annotation as DI;
+declare(strict_types=1);
+
 
 class SomeClass
 {

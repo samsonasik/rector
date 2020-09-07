@@ -22,13 +22,17 @@ final class PrivatizeFinalClassPropertyRector extends AbstractRector
         return new RectorDefinition('Change property to private if possible', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 final class SomeClass
 {
-    protected $value;
+    private $value;
 }
 PHP
 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 final class SomeClass
 {
     private $value;

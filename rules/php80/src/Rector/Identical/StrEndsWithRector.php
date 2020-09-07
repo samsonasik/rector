@@ -27,9 +27,11 @@ final class StrEndsWithRector extends AbstractRector
         return new RectorDefinition('Change helper functions to str_ends_with()', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         $isMatch = substr($haystack, -strlen($needle)) === $needle;
     }
@@ -37,9 +39,11 @@ class SomeClass
 PHP
 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         $isMatch = str_ends_with($haystack, $needle);
     }

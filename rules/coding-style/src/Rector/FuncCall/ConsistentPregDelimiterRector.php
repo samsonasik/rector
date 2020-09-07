@@ -70,9 +70,11 @@ final class ConsistentPregDelimiterRector extends AbstractRector implements Conf
         return new RectorDefinition('Replace PREG delimiter with configured one', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         preg_match('~value~', $value);
         preg_match_all('~value~im', $value);
@@ -81,9 +83,11 @@ class SomeClass
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         preg_match('#value#', $value);
         preg_match_all('#value#im', $value);

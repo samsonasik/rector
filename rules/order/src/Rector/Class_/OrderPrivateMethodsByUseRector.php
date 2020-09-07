@@ -31,38 +31,42 @@ final class OrderPrivateMethodsByUseRector extends AbstractConstantPropertyMetho
         return new RectorDefinition('Order private methods in order of their use', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         $this->call1();
         $this->call2();
     }
 
-    private function call2()
+    private function call2(): void
     {
     }
 
-    private function call1()
+    private function call1(): void
     {
     }
 }
 PHP
 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         $this->call1();
         $this->call2();
     }
 
-    private function call1()
+    private function call1(): void
     {
     }
 
-    private function call2()
+    private function call2(): void
     {
     }
 }

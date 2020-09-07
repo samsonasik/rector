@@ -35,6 +35,8 @@ final class ReplaceTimeNumberWithDateTimeConstantRector extends AbstractRector
         return new RectorDefinition('Replace time numbers with Nette\Utils\DateTime constants', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 final class SomeClass
 {
     public function run()
@@ -45,11 +47,14 @@ final class SomeClass
 PHP
 ,
                 <<<'PHP'
+declare(strict_types=1);
+use Nette\Utils\DateTime;
+
 final class SomeClass
 {
     public function run()
     {
-        return \Nette\Utils\DateTime::DAY;
+        return DateTime::DAY;
     }
 }
 PHP

@@ -31,8 +31,10 @@ final class TryCatchToExpectExceptionRector extends AbstractPHPUnitRector
         return new RectorDefinition('Turns try/catch to expectException() call', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 try {
-	$someService->run();
+    $someService->run();
 } catch (Throwable $exception) {
     $this->assertInstanceOf(RuntimeException::class, $e);
     $this->assertContains('There was an error executing the following script', $e->getMessage());
@@ -40,6 +42,8 @@ try {
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 $this->expectException(RuntimeException::class);
 $this->expectExceptionMessage('There was an error executing the following script');
 $someService->run();

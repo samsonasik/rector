@@ -35,6 +35,8 @@ final class RemoveUnusedPrivateMethodRector extends AbstractRector
         return new RectorDefinition('Remove unused private method', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 final class SomeController
 {
     public function run()
@@ -50,6 +52,8 @@ final class SomeController
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 final class SomeController
 {
     public function run()

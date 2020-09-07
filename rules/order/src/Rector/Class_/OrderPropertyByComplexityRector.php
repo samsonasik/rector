@@ -37,6 +37,8 @@ final class OrderPropertyByComplexityRector extends AbstractConstantPropertyMeth
             [
                 new CodeSample(
                     <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
     /**
@@ -57,6 +59,8 @@ class SomeClass
 PHP
 ,
                     <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass implements FoodRecipeInterface
 {
     /**

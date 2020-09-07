@@ -46,9 +46,11 @@ final class MinutesToSecondsInCacheRector extends AbstractRector
             [
                 new CodeSample(
                     <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         Illuminate\Support\Facades\Cache::put('key', 'value', 60);
     }
@@ -56,9 +58,11 @@ class SomeClass
 PHP
                     ,
                     <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         Illuminate\Support\Facades\Cache::put('key', 'value', 60 * 60);
     }

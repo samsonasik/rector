@@ -20,20 +20,23 @@ final class SimplifyIfElseWithSameContentRector extends AbstractRector
         return new RectorDefinition('Remove if/else if they have same content', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
     public function run()
     {
         if (true) {
             return 1;
-        } else {
-            return 1;
         }
+        return 1;
     }
 }
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
     public function run()

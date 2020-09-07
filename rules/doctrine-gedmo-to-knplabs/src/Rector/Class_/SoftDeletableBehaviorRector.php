@@ -39,6 +39,8 @@ final class SoftDeletableBehaviorRector extends AbstractRector
             [
                 new CodeSample(
                     <<<'PHP'
+declare(strict_types=1);
+
 use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
@@ -56,7 +58,7 @@ class SomeClass
         return $this->deletedAt;
     }
 
-    public function setDeletedAt($deletedAt)
+    public function setDeletedAt($deletedAt): void
     {
         $this->deletedAt = $deletedAt;
     }
@@ -64,6 +66,8 @@ class SomeClass
 PHP
 ,
                     <<<'PHP'
+declare(strict_types=1);
+
 use Knp\DoctrineBehaviors\Contract\Entity\SoftDeletableInterface;
 use Knp\DoctrineBehaviors\Model\SoftDeletable\SoftDeletableTrait;
 

@@ -22,9 +22,11 @@ final class SplitDoubleAssignRector extends AbstractRector
             [
                 new CodeSample(
                     <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         $one = $two = 1;
     }
@@ -32,9 +34,11 @@ class SomeClass
 PHP
                     ,
                     <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         $one = 1;
         $two = 1;

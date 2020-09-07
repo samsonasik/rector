@@ -22,15 +22,19 @@ final class RemoveDuplicatedArrayKeyRector extends AbstractRector
         return new RectorDefinition('Remove duplicated key in defined arrays.', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 $item = [
     1 => 'A',
-    1 => 'B'
+    1 => 'B',
 ];
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 $item = [
-    1 => 'B'
+    1 => 'B',
 ];
 PHP
             ),

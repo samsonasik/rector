@@ -41,12 +41,16 @@ final class AppUsesStaticCallToUseStatementRector extends AbstractRector
         return new RectorDefinition('Change App::uses() to use imports', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 App::uses('NotificationListener', 'Event');
 
 CakeEventManager::instance()->attach(new NotificationListener());
 PHP
 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 use Event\NotificationListener;
 
 CakeEventManager::instance()->attach(new NotificationListener());

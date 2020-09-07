@@ -40,7 +40,9 @@ $someObject->oldProperty = false;
 PHP
                 ,
 <<<'PHP'
-$someObject = new SomeClass;
+declare(strict_types=1);
+
+$someObject = new SomeClass();
 $someObject->newMethodCall(false);
 PHP
                 ,

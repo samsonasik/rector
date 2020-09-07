@@ -22,9 +22,11 @@ final class UnusedForeachValueToArrayKeysRector extends AbstractRector
         return new RectorDefinition('Change foreach with unused $value but only $key, to array_keys()', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         $items = [];
         foreach ($values as $key => $value) {
@@ -35,9 +37,11 @@ class SomeClass
 PHP
 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         $items = [];
         foreach (array_keys($values) as $key) {

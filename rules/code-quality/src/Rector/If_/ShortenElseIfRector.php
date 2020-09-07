@@ -21,22 +21,25 @@ final class ShortenElseIfRector extends AbstractRector
         return new RectorDefinition('Shortens else/if to elseif', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
     public function run()
     {
         if ($cond1) {
             return $action1;
-        } else {
-            if ($cond2) {
-                return $action2;
-            }
+        }
+        if ($cond2) {
+            return $action2;
         }
     }
 }
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
     public function run()

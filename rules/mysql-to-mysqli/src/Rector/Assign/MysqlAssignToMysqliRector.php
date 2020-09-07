@@ -45,10 +45,14 @@ final class MysqlAssignToMysqliRector extends AbstractRector
             [
                 new CodeSample(
                     <<<'PHP'
+declare(strict_types=1);
+
 $data = mysql_db_name($result, $row);
 PHP
                     ,
                     <<<'PHP'
+declare(strict_types=1);
+
 mysqli_data_seek($result, $row);
 $fetch = mysql_fetch_row($result);
 $data = $fetch[0];

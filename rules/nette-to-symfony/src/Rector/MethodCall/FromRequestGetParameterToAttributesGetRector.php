@@ -37,11 +37,13 @@ final class SomeController
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 use Nette\Request;
 
 final class SomeController
 {
-    public static function someAction(Request $request)
+    public static function someAction(Request $request): void
     {
         $value = $request->attribute->get('abz');
     }

@@ -40,6 +40,8 @@ final class EncapsedStringsToSprintfRector extends AbstractRector
         return new RectorDefinition('Convert enscaped {$string} to more readable sprintf', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 final class SomeClass
 {
     public function run(string $format)
@@ -50,6 +52,8 @@ final class SomeClass
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 final class SomeClass
 {
     public function run(string $format)

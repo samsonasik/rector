@@ -67,19 +67,23 @@ final class FormTypeInstanceToClassConstRector extends AbstractFormAddRector
             [
                 new CodeSample(
                     <<<'PHP'
+declare(strict_types=1);
+
 class SomeController
 {
-    public function action()
+    public function action(): void
     {
-        $form = $this->createForm(new TeamType, $entity);
+        $form = $this->createForm(new TeamType(), $entity);
     }
 }
 PHP
                     ,
                     <<<'PHP'
+declare(strict_types=1);
+
 class SomeController
 {
-    public function action()
+    public function action(): void
     {
         $form = $this->createForm(TeamType::class, $entity);
     }

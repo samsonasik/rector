@@ -50,11 +50,13 @@ final class ReplaceMagicPropertyEventWithEventClassRector extends AbstractRector
         return new RectorDefinition('Change $onProperty magic call with event disptacher and class dispatch', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 final class FileManager
 {
     public $onUpload;
 
-    public function run(User $user)
+    public function run(User $user): void
     {
         $this->onUpload($user);
     }
@@ -62,6 +64,8 @@ final class FileManager
 PHP
 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 final class FileManager
 {
     use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
@@ -71,7 +75,7 @@ final class FileManager
         $this->eventDispatcher = $eventDispatcher;
     }
 
-    public function run(User $user)
+    public function run(User $user): void
     {
         $onFileManagerUploadEvent = new FileManagerUploadEvent($user);
         $this->eventDispatcher->dispatch($onFileManagerUploadEvent);

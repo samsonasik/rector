@@ -27,9 +27,11 @@ final class CatchExceptionNameMatchingTypeRector extends AbstractRector
         return new RectorDefinition('Type and name of catch exception should match', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         try {
             // ...
@@ -41,9 +43,11 @@ class SomeClass
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         try {
             // ...

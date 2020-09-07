@@ -30,15 +30,19 @@ final class Php4ConstructorRector extends AbstractRector
             [
                 new CodeSample(
                     <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function SomeClass()
+    public function SomeClass(): void
     {
     }
 }
 PHP
                     ,
                     <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
     public function __construct()

@@ -36,6 +36,8 @@ final class WrapReturnRector extends AbstractRector implements ConfigurableRecto
         return new RectorDefinition('Wrap return value of specific method', [
             new ConfiguredCodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 final class SomeClass
 {
     public function getItem()
@@ -46,6 +48,8 @@ final class SomeClass
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 final class SomeClass
 {
     public function getItem()

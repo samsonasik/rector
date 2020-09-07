@@ -23,17 +23,20 @@ final class SplitGroupedUseImportsRector extends AbstractRector
         return new RectorDefinition('Split grouped use imports and trait statements to standalone lines', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 use A, B;
 
 class SomeClass
 {
-    use SomeTrait, AnotherTrait;
+    use SomeTrait;
+    use AnotherTrait;
 }
 PHP
 ,
                 <<<'PHP'
-use A;
-use B;
+declare(strict_types=1);
+
 
 class SomeClass
 {

@@ -23,9 +23,11 @@ final class RemoveDeadReturnRector extends AbstractRector
         return new RectorDefinition('Remove last return in the functions, since does not do anything', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         $shallWeDoThis = true;
 
@@ -39,9 +41,11 @@ class SomeClass
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         $shallWeDoThis = true;
 

@@ -27,40 +27,42 @@ final class MultipleClassFileToPsr4ClassesRector extends AbstractFileSystemRecto
             [
                 new CodeSample(
                     <<<'PHP'
+declare(strict_types=1);
+
 namespace App\Exceptions;
 
 use Exception;
 
 final class FirstException extends Exception
 {
-
 }
 
 final class SecondException extends Exception
 {
-
 }
 PHP
                     ,
                     <<<'PHP'
+declare(strict_types=1);
+
 // new file: "app/Exceptions/FirstException.php"
+
 namespace App\Exceptions;
 
 use Exception;
 
 final class FirstException extends Exception
 {
-
 }
 
 // new file: "app/Exceptions/SecondException.php"
+
 namespace App\Exceptions;
 
 use Exception;
 
 final class SecondException extends Exception
 {
-
 }
 PHP
                 ),

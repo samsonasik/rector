@@ -28,9 +28,11 @@ final class RemoveDuplicatedInstanceOfRector extends AbstractRector
         return new RectorDefinition('Remove duplicated instanceof in one call', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run($value)
+    public function run($value): void
     {
         $isIt = $value instanceof A || $value instanceof A;
         $isIt = $value instanceof A && $value instanceof A;
@@ -39,9 +41,11 @@ class SomeClass
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run($value)
+    public function run($value): void
     {
         $isIt = $value instanceof A;
         $isIt = $value instanceof A;

@@ -39,9 +39,11 @@ final class CascadeValidationFormBuilderRector extends AbstractRector
         return new RectorDefinition('Change "cascade_validation" option to specific node attribute', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeController
 {
-    public function someMethod()
+    public function someMethod(): void
     {
         $form = $this->createFormBuilder($article, ['cascade_validation' => true])
             ->add('author', new AuthorType())
@@ -56,13 +58,16 @@ class SomeController
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+use Symfony\Component\Validator\Constraints\Valid;
+
 class SomeController
 {
-    public function someMethod()
+    public function someMethod(): void
     {
         $form = $this->createFormBuilder($article)
             ->add('author', new AuthorType(), [
-                'constraints' => new \Symfony\Component\Validator\Constraints\Valid(),
+                'constraints' => new Valid(),
             ])
             ->getForm();
     }

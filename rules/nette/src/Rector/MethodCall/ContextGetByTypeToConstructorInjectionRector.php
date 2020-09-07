@@ -26,14 +26,17 @@ final class ContextGetByTypeToConstructorInjectionRector extends AbstractToConst
             [
                 new CodeSample(
                     <<<'PHP'
+declare(strict_types=1);
+use Nette\DI\Container;
+
 class SomeClass
 {
     /**
-     * @var \Nette\DI\Container
+     * @var Container
      */
     private $context;
 
-    public function run()
+    public function run(): void
     {
         $someTypeToInject = $this->context->getByType(SomeTypeToInject::class);
     }
@@ -41,10 +44,13 @@ class SomeClass
 PHP
 ,
                     <<<'PHP'
+declare(strict_types=1);
+use Nette\DI\Container;
+
 class SomeClass
 {
     /**
-     * @var \Nette\DI\Container
+     * @var Container
      */
     private $context;
 
@@ -58,7 +64,7 @@ class SomeClass
         $this->someTypeToInject = $someTypeToInject;
     }
 
-    public function run()
+    public function run(): void
     {
         $someTypeToInject = $this->someTypeToInject;
     }

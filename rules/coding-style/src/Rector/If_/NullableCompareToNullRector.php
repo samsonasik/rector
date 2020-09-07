@@ -33,15 +33,19 @@ final class NullableCompareToNullRector extends AbstractRector
             [
                 new CodeSample(
                     <<<'PHP'
+declare(strict_types=1);
+
 /** @var stdClass|null $value */
 if ($value) {
 }
 
-if (!$value) {
+if (! $value) {
 }
 PHP
                     ,
                     <<<'PHP'
+declare(strict_types=1);
+
 /** @var stdClass|null $value */
 if ($value !== null) {
 }

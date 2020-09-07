@@ -39,13 +39,16 @@ final class SimplifyUselessVariableRector extends AbstractRector
         return new RectorDefinition('Removes useless variable assigns', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 function () {
-    $a = true;
-    return $a;
+    return true;
 };
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 function () {
     return true;
 };

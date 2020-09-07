@@ -41,6 +41,8 @@ final class SimpleFunctionAndFilterRector extends AbstractRector
             [
                 new CodeSample(
                     <<<'PHP'
+declare(strict_types=1);
+
 class SomeExtension extends Twig_Extension
 {
     public function getFunctions()
@@ -60,20 +62,18 @@ class SomeExtension extends Twig_Extension
 PHP
                     ,
                     <<<'PHP'
+declare(strict_types=1);
+
 class SomeExtension extends Twig_Extension
 {
     public function getFunctions()
     {
-        return [
-             new Twig_SimpleFunction('is_mobile', [$this, 'isMobile']),
-        ];
+        return [new Twig_SimpleFunction('is_mobile', [$this, 'isMobile'])];
     }
 
     public function getFilters()
     {
-        return [
-             new Twig_SimpleFilter('is_mobile', [$this, 'isMobile']),
-        ];
+        return [new Twig_SimpleFilter('is_mobile', [$this, 'isMobile'])];
     }
 }
 PHP

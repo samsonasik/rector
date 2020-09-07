@@ -26,20 +26,24 @@ final class MultiExceptionCatchRector extends AbstractRector
             [
                 new CodeSample(
 <<<'PHP'
+declare(strict_types=1);
+
 try {
-   // Some code...
+    // Some code...
 } catch (ExceptionType1 $exception) {
-   $sameCode;
+    $sameCode;
 } catch (ExceptionType2 $exception) {
-   $sameCode;
+    $sameCode;
 }
 PHP
                     ,
 <<<'PHP'
+declare(strict_types=1);
+
 try {
-   // Some code...
+    // Some code...
 } catch (ExceptionType1 | ExceptionType2 $exception) {
-   $sameCode;
+    $sameCode;
 }
 PHP
                 ),

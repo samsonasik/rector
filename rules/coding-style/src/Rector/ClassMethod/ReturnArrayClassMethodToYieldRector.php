@@ -74,6 +74,8 @@ final class ReturnArrayClassMethodToYieldRector extends AbstractRector implement
         return new RectorDefinition('Turns array return to yield return in specific type and method', [
             new ConfiguredCodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeEventSubscriber implements EventSubscriberInterface
 {
     public static function getSubscribedEvents()
@@ -84,6 +86,8 @@ class SomeEventSubscriber implements EventSubscriberInterface
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeEventSubscriber implements EventSubscriberInterface
 {
     public static function getSubscribedEvents()

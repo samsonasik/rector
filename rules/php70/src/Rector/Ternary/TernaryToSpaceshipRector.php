@@ -26,13 +26,19 @@ final class TernaryToSpaceshipRector extends AbstractRector
         return new RectorDefinition('Use <=> spaceship instead of ternary with same effect', [
             new CodeSample(
                 <<<'PHP'
-function order_func($a, $b) {
-    return ($a < $b) ? -1 : (($a > $b) ? 1 : 0);
+declare(strict_types=1);
+
+function order_func($a, $b)
+{
+    return $a < $b ? -1 : ($a > $b ? 1 : 0);
 }
 PHP
                 ,
                 <<<'PHP'
-function order_func($a, $b) {
+declare(strict_types=1);
+
+function order_func($a, $b)
+{
     return $a <=> $b;
 }
 PHP

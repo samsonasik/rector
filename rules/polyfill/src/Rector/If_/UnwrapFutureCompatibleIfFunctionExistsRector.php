@@ -39,9 +39,11 @@ final class UnwrapFutureCompatibleIfFunctionExistsRector extends AbstractRector
         return new RectorDefinition('Remove functions exists if with else for always existing', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         // session locking trough other addons
         if (function_exists('session_abort')) {
@@ -54,9 +56,11 @@ class SomeClass
 PHP
 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         // session locking trough other addons
         session_abort();

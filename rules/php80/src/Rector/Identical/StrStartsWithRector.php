@@ -40,9 +40,11 @@ final class StrStartsWithRector extends AbstractRector
         return new RectorDefinition('Change helper functions to str_starts_with()', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         $isMatch = substr($haystack, 0, strlen($needle)) === $needle;
 
@@ -52,9 +54,11 @@ class SomeClass
 PHP
 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         $isMatch = str_starts_with($haystack, $needle);
 

@@ -26,31 +26,41 @@ final class BooleanNotIdenticalToNotIdenticalRector extends AbstractRector
             [
                 new CodeSample(
                     <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         $a = true;
         $b = false;
 
-        var_dump(! $a === $b); // true
-        var_dump(! ($a === $b)); // true
-        var_dump($a !== $b); // true
+        // true
+        var_dump(! $a === $b);
+        // true
+        var_dump(! ($a === $b));
+        // true
+        var_dump($a !== $b);
     }
 }
 PHP
                     ,
                     <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         $a = true;
         $b = false;
 
-        var_dump($a !== $b); // true
-        var_dump($a !== $b); // true
-        var_dump($a !== $b); // true
+        // true
+        var_dump($a !== $b);
+        // true
+        var_dump($a !== $b);
+        // true
+        var_dump($a !== $b);
     }
 }
 PHP

@@ -36,9 +36,11 @@ final class ArraySpreadInsteadOfArrayMergeRector extends AbstractRector
             [
                 new CodeSample(
                     <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run($iter1, $iter2)
+    public function run($iter1, $iter2): void
     {
         $values = array_merge(iterator_to_array($iter1), iterator_to_array($iter2));
 
@@ -52,9 +54,11 @@ class SomeClass
 PHP
                     ,
                     <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run($iter1, $iter2)
+    public function run($iter1, $iter2): void
     {
         $values = [...$iter1, ...$iter2];
 

@@ -21,10 +21,14 @@ final class IsCountableRector extends AbstractIsAbleRector
             [
                 new CodeSample(
                     <<<'PHP'
+declare(strict_types=1);
+
 is_array($foo) || $foo instanceof Countable;
 PHP
                     ,
                     <<<'PHP'
+declare(strict_types=1);
+
 is_countable($foo);
 PHP
                 ),

@@ -33,9 +33,11 @@ class SomeClass
 PHP
 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run($arg)
+    public function run($arg): void
     {
     }
 }

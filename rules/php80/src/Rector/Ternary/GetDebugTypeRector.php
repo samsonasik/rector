@@ -23,6 +23,8 @@ final class GetDebugTypeRector extends AbstractRector
         return new RectorDefinition('Change ternary type resolve to get_debug_type()', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
     public function run($value)
@@ -33,6 +35,8 @@ class SomeClass
 PHP
 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
     public function run($value)

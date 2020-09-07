@@ -29,9 +29,11 @@ final class SimplifyIfIssetToNullCoalescingRector extends AbstractRector
         return new RectorDefinition('Simplify binary if to null coalesce', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 final class SomeController
 {
-    public function run($possibleStatieYamlFile)
+    public function run($possibleStatieYamlFile): void
     {
         if (isset($possibleStatieYamlFile['import'])) {
             $possibleStatieYamlFile['import'] = array_merge($possibleStatieYamlFile['import'], $filesToImport);
@@ -43,9 +45,11 @@ final class SomeController
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 final class SomeController
 {
-    public function run($possibleStatieYamlFile)
+    public function run($possibleStatieYamlFile): void
     {
         $possibleStatieYamlFile['import'] = array_merge($possibleStatieYamlFile['import'] ?? [], $filesToImport);
     }

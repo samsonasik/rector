@@ -38,11 +38,13 @@ final class ExplicitBoolCompareRector extends AbstractRector
         return new RectorDefinition('Make if conditions more explicit', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 final class SomeController
 {
     public function run($items)
     {
-        if (!count($items)) {
+        if (! count($items)) {
             return 'no items';
         }
     }
@@ -50,6 +52,8 @@ final class SomeController
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 final class SomeController
 {
     public function run($items)

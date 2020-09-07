@@ -31,14 +31,16 @@ final class ChangeCollectionTypeOptionNameFromTypeToEntryTypeRector extends Abst
         return new RectorDefinition('Rename `type` option to `entry_type` in CollectionType', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\FormBuilderInterface;
 
 class TaskType extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder->add('tags', CollectionType::class, [
             'type' => ChoiceType::class,
@@ -49,14 +51,16 @@ class TaskType extends AbstractType
 PHP
 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\FormBuilderInterface;
 
 class TaskType extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder->add('tags', CollectionType::class, [
             'entry_type' => ChoiceType::class,

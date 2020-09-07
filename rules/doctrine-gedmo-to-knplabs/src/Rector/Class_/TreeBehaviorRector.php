@@ -112,6 +112,8 @@ class SomeClass
 PHP
 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 use Knp\DoctrineBehaviors\Contract\Entity\TreeNodeInterface;
 use Knp\DoctrineBehaviors\Model\Tree\TreeNodeTrait;
 

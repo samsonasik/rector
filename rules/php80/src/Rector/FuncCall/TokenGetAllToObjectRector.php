@@ -42,18 +42,20 @@ final class TokenGetAllToObjectRector extends AbstractRector
         return new RectorDefinition('Complete missing constructor dependency instance by type', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 final class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         $tokens = token_get_all($code);
         foreach ($tokens as $token) {
             if (is_array($token)) {
-               $name = token_name($token[0]);
-               $text = $token[1];
+                $name = token_name($token[0]);
+                $text = $token[1];
             } else {
-               $name = null;
-               $text = $token;
+                $name = null;
+                $text = $token;
             }
         }
     }

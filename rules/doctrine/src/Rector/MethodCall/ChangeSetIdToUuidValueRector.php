@@ -41,12 +41,14 @@ final class ChangeSetIdToUuidValueRector extends AbstractRector
         return new RectorDefinition('Change set id to uuid values', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 use Doctrine\ORM\Mapping as ORM;
 use Ramsey\Uuid\Uuid;
 
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         $buildingFirst = new Building();
         $buildingFirst->setId(1);
@@ -63,12 +65,14 @@ class Building
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 use Doctrine\ORM\Mapping as ORM;
 use Ramsey\Uuid\Uuid;
 
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         $buildingFirst = new Building();
         $buildingFirst->setId(Uuid::fromString('a3bfab84-e207-4ddd-b96d-488151de9e96'));

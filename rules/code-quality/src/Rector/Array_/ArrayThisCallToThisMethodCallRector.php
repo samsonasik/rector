@@ -39,9 +39,11 @@ final class ArrayThisCallToThisMethodCallRector extends AbstractRector
         return new RectorDefinition('Change `[$this, someMethod]` without any args to $this->someMethod()', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         $values = [$this, 'giveMeMore'];
     }
@@ -54,9 +56,11 @@ class SomeClass
 PHP
 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         $values = $this->giveMeMore();
     }

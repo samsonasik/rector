@@ -32,11 +32,13 @@ final class RemoveUnusedFunctionRector extends AbstractRector implements ZeroCac
         return new RectorDefinition('Remove unused function', [
             new CodeSample(
                 <<<'PHP'
-function removeMe()
+declare(strict_types=1);
+
+function removeMe(): void
 {
 }
 
-function useMe()
+function useMe(): void
 {
 }
 
@@ -44,7 +46,9 @@ useMe();
 PHP
 ,
                 <<<'PHP'
-function useMe()
+declare(strict_types=1);
+
+function useMe(): void
 {
 }
 

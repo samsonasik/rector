@@ -56,12 +56,14 @@ final class FormControlToControllerAndFormTypeRector extends AbstractRector
         return new RectorDefinition('Change Form that extends Control to Controller and decoupled FormType', [
             new CodeSample(
                 <<<'PHP'
-use Nette\Application\UI\Form;
+declare(strict_types=1);
+
 use Nette\Application\UI\Control;
+use Nette\Application\UI\Form;
 
 class SomeForm extends Control
 {
-    public function createComponentForm()
+    public function createComponentForm(): void
     {
         $form = new Form();
         $form->addText('name', 'Your name');
@@ -69,7 +71,7 @@ class SomeForm extends Control
         $form->onSuccess[] = [$this, 'processForm'];
     }
 
-    public function processForm(Form $form)
+    public function processForm(Form $form): void
     {
         // process me
     }
@@ -95,16 +97,18 @@ class SomeFormController extends \Symfony\Bundle\FrameworkBundle\Controller\Abst
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 class SomeFormType extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $formBuilder, array $options)
+    public function buildForm(FormBuilderInterface $formBuilder, array $options): void
     {
         $formBuilder->add('name', TextType::class, [
-            'label' => 'Your name'
+            'label' => 'Your name',
         ]);
     }
 }

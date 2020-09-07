@@ -25,11 +25,16 @@ final class UseClassKeywordForClassNameResolutionRector extends AbstractRector
             [
                 new CodeSample(
                     <<<'PHP'
+declare(strict_types=1);
+
 $value = 'App\SomeClass::someMethod()';
 PHP
                     ,
                     <<<'PHP'
-$value = \App\SomeClass . '::someMethod()';
+declare(strict_types=1);
+use const App\SomeClass;
+
+$value = SomeClass . '::someMethod()';
 PHP
                 ),
             ]

@@ -55,6 +55,8 @@ final class RemoveNonExistingVarAnnotationRector extends AbstractRector
         return new RectorDefinition('Removes non-existing @var annotations above the code', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
     public function get()
@@ -66,6 +68,8 @@ class SomeClass
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
     public function get()

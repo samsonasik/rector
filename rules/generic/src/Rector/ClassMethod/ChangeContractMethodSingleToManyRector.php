@@ -39,6 +39,8 @@ final class ChangeContractMethodSingleToManyRector extends AbstractRector implem
         return new RectorDefinition('Change method that returns single value to multiple values', [
             new ConfiguredCodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
     public function getNode(): string
@@ -49,6 +51,8 @@ class SomeClass
 PHP
 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
     /**

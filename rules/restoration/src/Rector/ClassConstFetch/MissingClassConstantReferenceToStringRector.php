@@ -22,6 +22,8 @@ final class MissingClassConstantReferenceToStringRector extends AbstractRector
         return new RectorDefinition('Convert missing class reference to string', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
     public function run()
@@ -32,6 +34,8 @@ class SomeClass
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
     public function run()

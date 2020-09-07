@@ -22,25 +22,29 @@ final class RealToFloatTypeCastRector extends AbstractRector
         return new RectorDefinition('Change deprecated (real) to (float)', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
-        $number = (real) 5;
         $number = (float) 5;
-        $number = (double) 5;
+        $number = (float) 5;
+        $number = (float) 5;
     }
 }
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         $number = (float) 5;
         $number = (float) 5;
-        $number = (double) 5;
+        $number = (float) 5;
     }
 }
 PHP

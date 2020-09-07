@@ -52,8 +52,10 @@ final class TranslationBehaviorRector extends AbstractRector
         return new RectorDefinition('Change Translation from gedmo/doctrine-extensions to knplabs/doctrine-behaviors', [
             new CodeSample(
                 <<<'PHP'
-use Gedmo\Mapping\Annotation as Gedmo;
+declare(strict_types=1);
+
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\Translatable\Translatable;
 
 /**
@@ -81,7 +83,7 @@ class Article implements Translatable
      */
     private $locale;
 
-    public function setTitle($title)
+    public function setTitle($title): void
     {
         $this->title = $title;
     }
@@ -91,7 +93,7 @@ class Article implements Translatable
         return $this->title;
     }
 
-    public function setContent($content)
+    public function setContent($content): void
     {
         $this->content = $content;
     }
@@ -101,7 +103,7 @@ class Article implements Translatable
         return $this->content;
     }
 
-    public function setTranslatableLocale($locale)
+    public function setTranslatableLocale($locale): void
     {
         $this->locale = $locale;
     }
@@ -109,8 +111,10 @@ class Article implements Translatable
 PHP
 ,
                 <<<'PHP'
-use Knp\DoctrineBehaviors\Model\Translatable\TranslatableTrait;
+declare(strict_types=1);
+
 use Knp\DoctrineBehaviors\Contract\Entity\TranslatableInterface;
+use Knp\DoctrineBehaviors\Contract\Entity\TranslationInterface;
 
 class SomeClass implements TranslatableInterface
 {
@@ -118,7 +122,7 @@ class SomeClass implements TranslatableInterface
 }
 
 
-use Knp\DoctrineBehaviors\Contract\Entity\TranslationInterface;
+use Knp\DoctrineBehaviors\Model\Translatable\TranslatableTrait;
 use Knp\DoctrineBehaviors\Model\Translatable\TranslationTrait;
 
 class SomeClassTranslation implements TranslationInterface

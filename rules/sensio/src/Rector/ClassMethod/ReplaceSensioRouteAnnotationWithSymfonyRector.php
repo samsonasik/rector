@@ -30,6 +30,8 @@ final class ReplaceSensioRouteAnnotationWithSymfonyRector extends AbstractRector
         return new RectorDefinition('Replace Sensio @Route annotation with Symfony one', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
 final class SomeClass
@@ -37,13 +39,15 @@ final class SomeClass
     /**
      * @Route()
      */
-    public function run()
+    public function run(): void
     {
     }
 }
 PHP
 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 use Symfony\Component\Routing\Annotation\Route;
 
 final class SomeClass
@@ -51,7 +55,7 @@ final class SomeClass
     /**
      * @Route()
      */
-    public function run()
+    public function run(): void
     {
     }
 }

@@ -33,6 +33,8 @@ final class RemoveEmptyClassMethodRector extends AbstractRector
         return new RectorDefinition('Remove empty method calls not required by parents', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class OrphanClass
 {
     public function __construct()
@@ -42,6 +44,8 @@ class OrphanClass
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class OrphanClass
 {
 }

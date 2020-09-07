@@ -23,9 +23,11 @@ final class CallUserFuncCallToVariadicRector extends AbstractRector
         return new RectorDefinition('Replace call_user_func_call with variadic', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         call_user_func_array('some_function', $items);
     }
@@ -33,9 +35,11 @@ class SomeClass
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         some_function(...$items);
     }

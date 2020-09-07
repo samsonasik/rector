@@ -28,6 +28,8 @@ final class SubstrStrlenFunctionToNetteUtilsStringsRector extends AbstractRector
         return new RectorDefinition('Use Nette\Utils\Strings over bare string-functions', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
     public function run()
@@ -38,11 +40,14 @@ class SomeClass
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+use Nette\Utils\Strings;
+
 class SomeClass
 {
     public function run()
     {
-        return \Nette\Utils\Strings::substring($value, 0, 3);
+        return Strings::substring($value, 0, 3);
     }
 }
 PHP

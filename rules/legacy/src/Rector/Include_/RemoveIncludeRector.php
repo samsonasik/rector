@@ -25,12 +25,16 @@ final class RemoveIncludeRector extends AbstractRector
             'Remove includes (include, include_once, require, require_once) from source', [
                 new CodeSample(
                                         <<<'PHP'
+declare(strict_types=1);
+
 // Comment before require
 include 'somefile.php';
 // Comment after require
 PHP
                                 ,
                                 <<<'PHP'
+declare(strict_types=1);
+
 // Comment before require
 
 // Comment after require

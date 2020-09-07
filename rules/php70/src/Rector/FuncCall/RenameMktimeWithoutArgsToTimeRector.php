@@ -22,9 +22,11 @@ final class RenameMktimeWithoutArgsToTimeRector extends AbstractRector
         return new RectorDefinition('Renames mktime() without arguments to time()', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         $time = mktime(1, 2, 3);
         $nextTime = mktime();
@@ -33,9 +35,11 @@ class SomeClass
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         $time = mktime(1, 2, 3);
         $nextTime = time();

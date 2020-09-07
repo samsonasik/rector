@@ -39,18 +39,22 @@ final class AddParamTypeDeclarationRector extends AbstractRector implements Conf
         return new RectorDefinition('Add param types where needed', [
             new ConfiguredCodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function process($name)
+    public function process($name): void
     {
     }
 }
 PHP
 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function process(string $name)
+    public function process(string $name): void
     {
     }
 }

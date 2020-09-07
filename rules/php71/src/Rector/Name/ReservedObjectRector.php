@@ -36,11 +36,15 @@ final class ReservedObjectRector extends AbstractRector implements ConfigurableR
         return new RectorDefinition(
             'Changes reserved "Object" name to "<Smart>Object" where <Smart> can be configured',
             [new CodeSample(<<<'PHP'
+declare(strict_types=1);
+
 class Object
 {
 }
 PHP
                 , <<<'PHP'
+declare(strict_types=1);
+
 class SmartObject
 {
 }

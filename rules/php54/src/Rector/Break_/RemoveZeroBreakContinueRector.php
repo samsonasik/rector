@@ -28,9 +28,11 @@ final class RemoveZeroBreakContinueRector extends AbstractRector
         return new RectorDefinition('Remove 0 from break and continue', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run($random)
+    public function run($random): void
     {
         continue 0;
         break 0;
@@ -44,9 +46,11 @@ class SomeClass
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run($random)
+    public function run($random): void
     {
         continue;
         break;

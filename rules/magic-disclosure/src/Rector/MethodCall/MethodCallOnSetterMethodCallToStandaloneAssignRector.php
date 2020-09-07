@@ -45,31 +45,35 @@ final class MethodCallOnSetterMethodCallToStandaloneAssignRector extends Abstrac
         return new RectorDefinition('Change method call on setter to standalone assign before the setter', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function some()
+    public function some(): void
     {
         $this->anotherMethod(new AnotherClass())
             ->someFunction();
     }
 
-    public function anotherMethod(AnotherClass $anotherClass)
+    public function anotherMethod(AnotherClass $anotherClass): void
     {
     }
 }
 PHP
 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function some()
+    public function some(): void
     {
         $anotherClass = new AnotherClass();
         $anotherClass->someFunction();
         $this->anotherMethod($anotherClass);
     }
 
-    public function anotherMethod(AnotherClass $anotherClass)
+    public function anotherMethod(AnotherClass $anotherClass): void
     {
     }
 }

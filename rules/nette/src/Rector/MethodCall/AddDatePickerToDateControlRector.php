@@ -43,14 +43,17 @@ class SomeClass
 PHP
 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 use Nette\Application\UI\Form;
+use Nextras\FormComponents\Controls\DateControl;
 
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         $form = new Form();
-        $form['key'] = new \Nextras\FormComponents\Controls\DateControl('Label');
+        $form['key'] = new DateControl('Label');
     }
 }
 PHP

@@ -24,9 +24,11 @@ final class RemoveAssignOfVoidReturnFunctionRector extends AbstractRector
         return new RectorDefinition('Remove assign of void function/method to variable', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         $value = $this->getOne();
     }
@@ -38,9 +40,11 @@ class SomeClass
 PHP
 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         $this->getOne();
     }

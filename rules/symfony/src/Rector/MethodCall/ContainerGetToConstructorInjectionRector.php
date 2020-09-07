@@ -38,9 +38,11 @@ final class ContainerGetToConstructorInjectionRector extends AbstractToConstruct
             [
                 new CodeSample(
 <<<'PHP'
+declare(strict_types=1);
+
 final class SomeCommand extends ContainerAwareCommand
 {
-    public function someMethod()
+    public function someMethod(): void
     {
         // ...
         $this->getContainer()->get('some_service');
@@ -50,6 +52,8 @@ final class SomeCommand extends ContainerAwareCommand
 PHP
                     ,
 <<<'PHP'
+declare(strict_types=1);
+
 final class SomeCommand extends Command
 {
     public function __construct(SomeService $someService)
@@ -57,7 +61,7 @@ final class SomeCommand extends Command
         $this->someService = $someService;
     }
 
-    public function someMethod()
+    public function someMethod(): void
     {
         // ...
         $this->someService;

@@ -26,26 +26,29 @@ final class RemoveAlwaysElseRector extends AbstractRector
         return new RectorDefinition('Split if statement, when if condition always break execution flow', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
     public function run($value)
     {
         if ($value) {
-            throw new \InvalidStateException;
-        } else {
-            return 10;
+            throw new InvalidStateException();
         }
+        return 10;
     }
 }
 PHP
 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
     public function run($value)
     {
         if ($value) {
-            throw new \InvalidStateException;
+            throw new InvalidStateException();
         }
 
         return 10;

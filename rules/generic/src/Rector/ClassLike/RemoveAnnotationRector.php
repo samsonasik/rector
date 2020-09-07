@@ -36,6 +36,8 @@ final class RemoveAnnotationRector extends AbstractRector implements Configurabl
         return new RectorDefinition('Remove annotation by names', [
             new ConfiguredCodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 /**
  * @method getName()
  */
@@ -45,6 +47,8 @@ final class SomeClass
 PHP
 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 final class SomeClass
 {
 }

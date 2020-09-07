@@ -31,11 +31,13 @@ final class NetteAssertToPHPUnitAssertRector extends AbstractRector
         return new RectorDefinition('Migrate Nette/Assert calls to PHPUnit', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 use Tester\Assert;
 
-function someStaticFunctions()
+function someStaticFunctions(): void
 {
-    Assert::true(10 == 5);
+    Assert::true(10 === 5);
 }
 PHP
                 ,

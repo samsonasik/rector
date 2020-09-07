@@ -25,6 +25,8 @@ final class PrivatizeLocalGetterToPropertyRector extends AbstractRector
         return new RectorDefinition('Privatize getter of local property to property', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
     private $some;
@@ -42,6 +44,8 @@ class SomeClass
 PHP
 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
     private $some;

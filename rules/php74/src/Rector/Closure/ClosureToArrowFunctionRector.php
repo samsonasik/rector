@@ -27,6 +27,8 @@ final class ClosureToArrowFunctionRector extends AbstractRector
         return new RectorDefinition('Change closure to arrow function', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
     public function run($meetups)
@@ -39,11 +41,13 @@ class SomeClass
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
     public function run($meetups)
     {
-        return array_filter($meetups, fn(Meetup $meetup) => is_object($meetup));
+        return array_filter($meetups, fn (Meetup $meetup) => is_object($meetup));
     }
 }
 PHP

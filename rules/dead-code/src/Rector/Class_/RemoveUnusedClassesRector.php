@@ -32,6 +32,8 @@ final class RemoveUnusedClassesRector extends AbstractRector implements ZeroCach
         return new RectorDefinition('Remove unused classes without interface', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 interface SomeInterface
 {
 }
@@ -50,6 +52,8 @@ class NowhereUsedClass
 PHP
 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 interface SomeInterface
 {
 }

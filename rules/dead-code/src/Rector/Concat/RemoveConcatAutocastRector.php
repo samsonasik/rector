@@ -22,6 +22,8 @@ final class RemoveConcatAutocastRector extends AbstractRector
         return new RectorDefinition('Remove (string) casting when it comes to concat, that does this by default', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeConcatingClass
 {
     public function run($value)
@@ -32,6 +34,8 @@ class SomeConcatingClass
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeConcatingClass
 {
     public function run($value)

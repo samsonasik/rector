@@ -49,9 +49,11 @@ final class RemoveUnusedNonEmptyArrayBeforeForeachRector extends AbstractRector
         return new RectorDefinition('Remove unused if check to non-empty array before foreach of the array', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         $values = [];
         if ($values !== []) {
@@ -64,9 +66,11 @@ class SomeClass
 PHP
 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         $values = [];
         foreach ($values as $value) {

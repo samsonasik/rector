@@ -33,9 +33,11 @@ final class FuncCallToNewRector extends AbstractRector implements ConfigurableRe
         return new RectorDefinition('Change configured function calls to new Instance', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         $array = collection([]);
     }
@@ -43,11 +45,13 @@ class SomeClass
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
-        $array = new \Collection([]);
+        $array = new Collection([]);
     }
 }
 PHP

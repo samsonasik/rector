@@ -24,13 +24,15 @@ final class ChangeCollectionTypeOptionTypeFromStringToClassReferenceRector exten
         return new RectorDefinition('Change type in CollectionType from alias string to class reference', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\FormBuilderInterface;
 
 class TaskType extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder->add('tags', CollectionType::class, [
             'type' => 'choice',
@@ -44,20 +46,23 @@ class TaskType extends AbstractType
 PHP
 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class TaskType extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder->add('tags', CollectionType::class, [
-            'type' => \Symfony\Component\Form\Extension\Core\Type\ChoiceType::class,
+            'type' => ChoiceType::class,
         ]);
 
         $builder->add('tags', 'collection', [
-            'type' => \Symfony\Component\Form\Extension\Core\Type\ChoiceType::class,
+            'type' => ChoiceType::class,
         ]);
     }
 }

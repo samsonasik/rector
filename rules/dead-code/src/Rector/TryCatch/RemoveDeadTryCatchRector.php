@@ -22,14 +22,15 @@ final class RemoveDeadTryCatchRector extends AbstractRector
         return new RectorDefinition('Remove dead try/catch', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         try {
             // some code
-        }
-        catch (Throwable $throwable) {
+        } catch (Throwable $throwable) {
             throw $throwable;
         }
     }
@@ -37,9 +38,11 @@ class SomeClass
 PHP
 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         // some code
     }

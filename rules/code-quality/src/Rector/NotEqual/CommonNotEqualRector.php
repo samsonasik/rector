@@ -22,21 +22,25 @@ final class CommonNotEqualRector extends AbstractRector
         return new RectorDefinition('Use common != instead of less known <> with same meaning', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 final class SomeClass
 {
     public function run($one, $two)
     {
-        return $one <> $two;
+        return $one !== $two;
     }
 }
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 final class SomeClass
 {
     public function run($one, $two)
     {
-        return $one != $two;
+        return $one !== $two;
     }
 }
 PHP

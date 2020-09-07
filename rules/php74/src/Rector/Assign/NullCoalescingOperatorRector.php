@@ -24,11 +24,15 @@ final class NullCoalescingOperatorRector extends AbstractRector
         return new RectorDefinition('Use null coalescing operator ??=', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 $array = [];
 $array['user_id'] = $array['user_id'] ?? 'value';
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 $array = [];
 $array['user_id'] ??= 'value';
 PHP

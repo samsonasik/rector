@@ -27,9 +27,11 @@ final class ChangeArrayPushToArrayAssignRector extends AbstractRector
         return new RectorDefinition('Change array_push() to direct variable assign', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         $items = [];
         array_push($items, $item);
@@ -38,9 +40,11 @@ class SomeClass
 PHP
 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         $items = [];
         $items[] = $item;

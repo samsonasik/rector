@@ -24,6 +24,8 @@ final class PreslashSimpleFunctionRector extends AbstractRector
         return new RectorDefinition('Add pre-slash to short named functions to improve performance', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
     public function shorten($value)
@@ -34,11 +36,13 @@ class SomeClass
 PHP
 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
     public function shorten($value)
     {
-        return \trim($value);
+        return trim($value);
     }
 }
 PHP

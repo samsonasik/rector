@@ -28,9 +28,11 @@ final class AbsolutizeRequireAndIncludePathRector extends AbstractRector
             [
                 new CodeSample(
                     <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         require 'autoload.php';
 
@@ -40,9 +42,11 @@ class SomeClass
 PHP
 ,
                     <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         require __DIR__ . '/autoload.php';
 

@@ -23,6 +23,8 @@ final class DirNameFileConstantToDirConstantRector extends AbstractRector
         return new RectorDefinition('Convert dirname(__FILE__) to __DIR__', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
     public function run()
@@ -33,6 +35,8 @@ class SomeClass
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
     public function run()

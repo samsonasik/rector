@@ -48,18 +48,20 @@ final class SelfContainerGetMethodCallFromTestToSetUpMethodRector extends Abstra
         return new RectorDefinition('Move self::$container service fetching from test methods up to setUp method', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 use ItemRepository;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 class SomeTest extends KernelTestCase
 {
-    public function testOne()
+    public function testOne(): void
     {
         $itemRepository = self::$container->get(ItemRepository::class);
         $itemRepository->doStuff();
     }
 
-    public function testTwo()
+    public function testTwo(): void
     {
         $itemRepository = self::$container->get(ItemRepository::class);
         $itemRepository->doAnotherStuff();
@@ -68,28 +70,31 @@ class SomeTest extends KernelTestCase
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 use ItemRepository;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 class SomeTest extends KernelTestCase
 {
     /**
-     * @var \ItemRepository
+     * @var ItemRepository
      */
     private $itemRepository;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
+
         $this->itemRepository = self::$container->get(ItemRepository::class);
     }
 
-    public function testOne()
+    public function testOne(): void
     {
         $this->itemRepository->doStuff();
     }
 
-    public function testTwo()
+    public function testTwo(): void
     {
         $this->itemRepository->doAnotherStuff();
     }

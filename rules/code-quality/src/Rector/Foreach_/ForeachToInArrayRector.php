@@ -52,8 +52,10 @@ final class ForeachToInArrayRector extends AbstractRector
             [
                 new CodeSample(
                     <<<'PHP'
+declare(strict_types=1);
+
 foreach ($items as $item) {
-    if ($item === "something") {
+    if ($item === 'something') {
         return true;
     }
 }

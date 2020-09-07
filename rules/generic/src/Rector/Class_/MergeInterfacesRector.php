@@ -37,12 +37,16 @@ final class MergeInterfacesRector extends AbstractRector implements Configurable
         return new RectorDefinition('Merges old interface to a new one, that already has its methods', [
             new ConfiguredCodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass implements SomeInterface, SomeOldInterface
 {
 }
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass implements SomeInterface
 {
 }

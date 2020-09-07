@@ -41,6 +41,8 @@ $value = SomeClass::OTHER_OLD_CONSTANT;
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 $value = SomeClass::NEW_CONSTANT;
 $value = DifferentClass::NEW_CONSTANT;
 PHP

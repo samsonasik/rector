@@ -31,6 +31,8 @@ final class StrContainsRector extends AbstractRector
         return new RectorDefinition('Replace strpos() !== false and strstr()  with str_contains()', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
     public function run()
@@ -41,6 +43,8 @@ class SomeClass
 PHP
 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
     public function run()

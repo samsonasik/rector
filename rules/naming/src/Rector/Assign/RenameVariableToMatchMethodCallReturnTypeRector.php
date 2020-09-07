@@ -101,9 +101,11 @@ final class RenameVariableToMatchMethodCallReturnTypeRector extends AbstractRect
         return new RectorDefinition('Rename variable to match method return type', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         $a = $this->getRunner();
     }
@@ -116,9 +118,11 @@ class SomeClass
 PHP
 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         $runner = $this->getRunner();
     }

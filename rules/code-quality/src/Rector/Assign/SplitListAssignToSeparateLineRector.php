@@ -24,6 +24,8 @@ final class SplitListAssignToSeparateLineRector extends AbstractRector
         return new RectorDefinition('Splits `[$a, $b] = [5, 10]` scalar assign to standalone lines', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 final class SomeClass
 {
     public function run(): void
@@ -34,6 +36,8 @@ final class SomeClass
 PHP
 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 final class SomeClass
 {
     public function run(): void

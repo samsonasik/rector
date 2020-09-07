@@ -33,28 +33,32 @@ final class ThisCallOnStaticMethodToStaticCallRector extends AbstractRector
         return new RectorDefinition('Changes $this->call() to static method to static call', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public static function run()
+    public static function run(): void
     {
         $this->eat();
     }
 
-    public static function eat()
+    public static function eat(): void
     {
     }
 }
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public static function run()
+    public static function run(): void
     {
         static::eat();
     }
 
-    public static function eat()
+    public static function eat(): void
     {
     }
 }

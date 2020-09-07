@@ -40,11 +40,15 @@ final class CountOnNullRector extends AbstractRector
             'Changes count() on null to safe ternary check',
             [new CodeSample(
 <<<'PHP'
+declare(strict_types=1);
+
 $values = null;
 $count = count($values);
 PHP
                 ,
 <<<'PHP'
+declare(strict_types=1);
+
 $values = null;
 $count = is_array($values) || $values instanceof Countable ? count($values) : 0;
 PHP

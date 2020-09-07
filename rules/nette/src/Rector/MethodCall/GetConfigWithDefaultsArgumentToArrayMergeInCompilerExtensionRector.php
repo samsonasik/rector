@@ -21,15 +21,17 @@ final class GetConfigWithDefaultsArgumentToArrayMergeInCompilerExtensionRector e
         return new RectorDefinition('Change $this->getConfig($defaults) to array_merge', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 use Nette\DI\CompilerExtension;
 
 final class SomeExtension extends CompilerExtension
 {
     private $defaults = [
-        'key' => 'value'
+        'key' => 'value',
     ];
 
-    public function loadConfiguration()
+    public function loadConfiguration(): void
     {
         $config = $this->getConfig($this->defaults);
     }
@@ -37,15 +39,17 @@ final class SomeExtension extends CompilerExtension
 PHP
 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 use Nette\DI\CompilerExtension;
 
 final class SomeExtension extends CompilerExtension
 {
     private $defaults = [
-        'key' => 'value'
+        'key' => 'value',
     ];
 
-    public function loadConfiguration()
+    public function loadConfiguration(): void
     {
         $config = array_merge($this->defaults, $this->getConfig());
     }

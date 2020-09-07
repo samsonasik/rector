@@ -47,9 +47,11 @@ final class SimplifyRegexPatternRector extends AbstractRector
         return new RectorDefinition('Simplify regex pattern to known ranges', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run($value)
+    public function run($value): void
     {
         preg_match('#[a-zA-Z0-9+]#', $value);
     }
@@ -57,9 +59,11 @@ class SomeClass
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run($value)
+    public function run($value): void
     {
         preg_match('#[\w\d+]#', $value);
     }

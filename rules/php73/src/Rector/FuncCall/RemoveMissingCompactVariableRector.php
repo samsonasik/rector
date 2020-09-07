@@ -24,9 +24,11 @@ final class RemoveMissingCompactVariableRector extends AbstractRector
         return new RectorDefinition('Remove non-existing vars from compact()', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         $value = 'yes';
 
@@ -36,9 +38,11 @@ class SomeClass
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         $value = 'yes';
 

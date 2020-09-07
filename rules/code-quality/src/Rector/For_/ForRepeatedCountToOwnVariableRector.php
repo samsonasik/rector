@@ -35,9 +35,11 @@ final class ForRepeatedCountToOwnVariableRector extends AbstractRector
         return new RectorDefinition('Change count() in for function to own variable', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run($items)
+    public function run($items): void
     {
         for ($i = 5; $i <= count($items); $i++) {
             echo $items[$i];
@@ -47,9 +49,11 @@ class SomeClass
 PHP
 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run($items)
+    public function run($items): void
     {
         $itemsCount = count($items);
         for ($i = 5; $i <= $itemsCount; $i++) {

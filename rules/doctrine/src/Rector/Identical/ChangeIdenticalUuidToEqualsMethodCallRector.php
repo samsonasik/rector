@@ -36,6 +36,8 @@ final class ChangeIdenticalUuidToEqualsMethodCallRector extends AbstractRector
         return new RectorDefinition('Change $uuid === 1 to $uuid->equals(\Ramsey\Uuid\Uuid::fromString(1))', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
     public function match($checkedId): int
@@ -48,13 +50,16 @@ class SomeClass
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+use Ramsey\Uuid\Uuid;
+
 class SomeClass
 {
     public function match($checkedId): int
     {
         $building = new Building();
 
-        return $building->getId()->equals(\Ramsey\Uuid\Uuid::fromString($checkedId));
+        return $building->getId()->equals(Uuid::fromString($checkedId));
     }
 }
 PHP

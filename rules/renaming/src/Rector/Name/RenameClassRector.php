@@ -54,6 +54,8 @@ final class RenameClassRector extends AbstractRector implements ConfigurableRect
         return new RectorDefinition('Replaces defined classes by new ones.', [
             new ConfiguredCodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 namespace App;
 
 use SomeOldClass;
@@ -61,12 +63,14 @@ use SomeOldClass;
 function someFunction(SomeOldClass $someOldClass): SomeOldClass
 {
     if ($someOldClass instanceof SomeOldClass) {
-        return new SomeOldClass;
+        return new SomeOldClass();
     }
 }
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 namespace App;
 
 use SomeNewClass;
@@ -74,7 +78,7 @@ use SomeNewClass;
 function someFunction(SomeNewClass $someOldClass): SomeNewClass
 {
     if ($someOldClass instanceof SomeNewClass) {
-        return new SomeNewClass;
+        return new SomeNewClass();
     }
 }
 PHP

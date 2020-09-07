@@ -30,22 +30,26 @@ final class ListToArrayDestructRector extends AbstractRector
         return new RectorDefinition('Remove & from new &X', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
-        list($id1, $name1) = $data;
+        [$id1, $name1] = $data;
 
-        foreach ($data as list($id, $name)) {
+        foreach ($data as [$id, $name]) {
         }
     }
 }
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         [$id1, $name1] = $data;
 

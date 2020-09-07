@@ -21,6 +21,8 @@ final class RemoveAlwaysTrueIfConditionRector extends AbstractRector
         return new RectorDefinition('Remove if condition that is always true', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 final class SomeClass
 {
     public function go()
@@ -28,19 +30,21 @@ final class SomeClass
         if (1 === 1) {
             return 'yes';
         }
-        
+
         return 'no';
     }
 }
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 final class SomeClass
 {
     public function go()
     {
         return 'yes';
-        
+
         return 'no';
     }
 }

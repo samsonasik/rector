@@ -39,10 +39,14 @@ final class ListEachRector extends AbstractRector
             [
                 new CodeSample(
                     <<<'PHP'
-list($key, $callback) = each($callbacks);
+declare(strict_types=1);
+
+[$key, $callback] = each($callbacks);
 PHP
                     ,
                     <<<'PHP'
+declare(strict_types=1);
+
 $key = key($callbacks);
 $callback = current($callbacks);
 next($callbacks);

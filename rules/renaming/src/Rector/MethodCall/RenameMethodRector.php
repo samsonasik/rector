@@ -42,12 +42,16 @@ final class RenameMethodRector extends AbstractRector implements ConfigurableRec
         return new RectorDefinition('Turns method names to new ones.', [
             new ConfiguredCodeSample(
                 <<<'PHP'
-$someObject = new SomeExampleClass;
+declare(strict_types=1);
+
+$someObject = new SomeExampleClass();
 $someObject->oldMethod();
 PHP
                 ,
                 <<<'PHP'
-$someObject = new SomeExampleClass;
+declare(strict_types=1);
+
+$someObject = new SomeExampleClass();
 $someObject->newMethod();
 PHP
                 ,

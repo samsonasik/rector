@@ -39,9 +39,11 @@ final class CompleteMissingDependencyInNewRector extends AbstractRector implemen
         return new RectorDefinition('Complete missing constructor dependency instance by type', [
             new ConfiguredCodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 final class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         $valueObject = new RandomValueObject();
     }
@@ -56,9 +58,11 @@ class RandomValueObject
 PHP
 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 final class SomeClass
 {
-    public function run()
+    public function run(): void
     {
         $valueObject = new RandomValueObject(new RandomDependency());
     }

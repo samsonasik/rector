@@ -32,18 +32,22 @@ final class ReadOnlyOptionToAttributeRector extends AbstractFormAddRector
         return new RectorDefinition('Change "read_only" option in form to attribute', [
             new CodeSample(
                 <<<'PHP'
+declare(strict_types=1);
+
 use Symfony\Component\Form\FormBuilderInterface;
 
-function buildForm(FormBuilderInterface $builder, array $options)
+function buildForm(FormBuilderInterface $builder, array $options): void
 {
     $builder->add('cuid', TextType::class, ['read_only' => true]);
 }
 PHP
                 ,
                 <<<'PHP'
+declare(strict_types=1);
+
 use Symfony\Component\Form\FormBuilderInterface;
 
-function buildForm(FormBuilderInterface $builder, array $options)
+function buildForm(FormBuilderInterface $builder, array $options): void
 {
     $builder->add('cuid', TextType::class, ['attr' => ['read_only' => true]]);
 }
